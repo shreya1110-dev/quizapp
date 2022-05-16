@@ -1,0 +1,3 @@
+command to compile servlet
+
+javac -cp ;C:/apache-tomcat-9.0.62/lib/servlet-api.jar -d WEB-INF/classes UserAuthenticate.java

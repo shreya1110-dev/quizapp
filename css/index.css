@@ -1,0 +1,12 @@
+body {
+	background: linear-gradient(#5EC2B7, #2CA6A4); 
+	background-size: cover; 
+	font-family: Verdana; 
+	font-size: 20px;
+	height: 100vh;
+	width:100vw;
+	margin: 0;
+	overflow: auto;
+	overflow-X: hidden;
+	text-align: center;
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset = "utf-8">
+		<link rel = "stylesheet" href = "../css/welcome.css" type = "text/css">
+        <link rel = "stylesheet" href = "../css/index.css" type = "text/css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Welcome!</title>
+        <script>
+            function signup() {
+                window.location.href = "signup.html";
+            }
+            function login() {
+                window.location.href = "login.html";
+            }
+        </script>
+    </head>
+    <style>
+    body {
+        background: linear-gradient(#5EC2B7, #2CA6A4); 
+        background-size: cover; 
+        font-family: Verdana; 
+        font-size: 20px;
+        height: 100vh;
+        width:100vw;
+        margin: 0;
+        overflow: auto;
+        overflow-X: hidden;
+        text-align: center;
+    }
+
+    .button-container {
+    text-align: center;
+    width: 60%;
+    margin: auto;
+    align-items: center;
+    background: black;
+    }
+
+    h1 {
+        color: black;
+        margin-bottom: 10%;
+        font-size: 50px;
+    }
+
+    button {
+        border: 1px;
+        padding: 5px;
+        margin: 10px;
+        width: 30%;
+    }
+
+    button:hover {
+        background-color: #2CA6A4;
+    }
+
+    label {
+        color: white;
+        font-size: 30px;
+    }
+
+    tr {
+        width: 100%;
+    }
+
+    td {
+        width: 50%;
+    }
+    </style>
+    <body>
+        <h1>Welcome to the Event Registration Page!</h1>
+        <div class="button-container">
+            <table style="width:100%">
+                <tr>
+                    <td><label>For New User:</label></td>
+                    <td> <button onclick="signup()"><h2>Signup</h2></button></td>
+                </tr>
+                <tr>
+                    <td><label>For Existing User:</label></td>
+                    <td><button onclick="login()"><h2>Login</h2></button></td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

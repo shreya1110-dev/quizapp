@@ -1,0 +1,56 @@
+<web-app>
+    <servlet>
+        <servlet-class>Welcome</servlet-class>
+        <servlet-name>Welcome</servlet-name>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Welcome</servlet-name>
+        <url-pattern>/Welcome</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-class>UserAuthenticate</servlet-class>
+        <servlet-name>UserAuth</servlet-name>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserAuth</servlet-name>
+        <url-pattern>/UserAuth</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-class>InsertCredentials</servlet-class>
+        <servlet-name>InsCred</servlet-name>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InsCred</servlet-name>
+        <url-pattern>/InsCred</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-class>InsertDetails</servlet-class>
+        <servlet-name>InsDet</servlet-name>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InsDet</servlet-name>
+        <url-pattern>/InsDet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-class>RenderQuiz</servlet-class>
+        <servlet-name>RenQuiz</servlet-name>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RenQuiz</servlet-name>
+        <url-pattern>/RenQuiz</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-class>DisplayScore</servlet-class>
+        <servlet-name>DispScore</servlet-name>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DispScore</servlet-name>
+        <url-pattern>/DispScore</url-pattern>
+    </servlet-mapping>
+    
+</web-app>

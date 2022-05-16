@@ -1,0 +1,55 @@
+.credentials-container {
+	text-align: center;
+    width: 60%;
+	margin: auto;
+    background: black;
+	border-radius: 30px;
+}
+
+table {
+	text-align: center;
+}
+
+label {
+    color: white;
+    font-size: 30px;
+}
+
+tr {
+	width: 50%;
+	text-align: center;
+	padding: 20px;
+}
+
+td {
+	width: 50%;
+	text-align: center;
+	padding: 20px;
+}
+
+input[type="submit"] {
+	background: white;
+	border-radius: 5px;
+	padding: 10px;
+	color: black;
+	font-size: 20px;
+	width: 40%;
+}
+
+input[type="text"] {
+	background: white;
+	border-radius: 5px;
+	padding: 10px;
+	color: black;
+	font-size: 20px;
+	width: 80%;
+}
+
+input[type="password"] {
+	background: white;
+	border-radius: 5px;
+	padding: 10px;
+	color: black;
+	font-size: 20px;
+	width: 80%;
+}

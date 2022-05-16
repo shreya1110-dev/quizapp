@@ -1,0 +1,406 @@
+<DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "utf-8">
+        <link rel = "stylesheet" href = "../css/index.css" type = "text/css">
+		<link rel = "stylesheet" href = "../css/reg.css" type = "text/css">
+        <title>Details</title>
+	</head>
+    <style>
+    body {
+        background: linear-gradient(#5EC2B7, #2CA6A4); 
+        background-size: cover; 
+        font-family: Verdana; 
+        font-size: 20px;
+        height: 100vh;
+        width:100vw;
+        margin: 0;
+        overflow: auto;
+        overflow-X: hidden;
+        text-align: center;
+    }
+    
+    .reg-heading {
+        padding: 10px;
+        margin-top: 40px;
+        align: center;
+        font-weight: bold;
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .form-register {
+    margin-top: 40px;
+    width: 60%;
+    margin: auto;
+    background-color:black;
+    text-align: center;
+    }
+
+    label {
+    padding: 40px;
+    color: white;
+    font-size: 20px;
+    }
+
+    input[type=text] {
+    height: 40px;
+    width: 100%;
+    font-size: 14px;
+    margin-right: 40px;
+    }
+
+    input[type=date] {
+    height: 40px;
+    width: 100%;
+    font-size: 14px;
+    margin-right: 40px;
+    }
+
+    input[type=tel] {
+    height: 40px;
+    width: 100%;
+    font-size: 14px;
+    margin-right: 40px;
+    }
+
+    input[type=email] {
+    height: 40px;
+    width: 100%;
+    font-size: 14px;
+    margin-right: 40px;
+    }
+
+    input[type=number] {
+    height: 40px;
+    width: 100%;
+    font-size: 14px;
+    margin-right: 40px;
+    }
+
+    textarea {
+    width: 100%;
+    height: 100px;
+    }
+
+    .select-inp {
+    width: 100%;
+    }
+
+    .prog-skill {
+    color: black;
+    padding: 5px;
+    background-color: white;
+    display:inline;
+    }
+
+    #clock {
+    font-size: 40px;
+    }
+
+    tr {
+        width: 50%;
+        text-align: right;
+        padding: 20px;
+    }
+
+    td {
+        width: 50%;
+        text-align: left;
+        padding: 20px;
+    }
+
+    td.submit-col {
+        text-align: right;
+        padding: 20px;
+    }
+
+    td.reset-col {
+        text-align: left;
+        padding: 20px;
+    }
+
+
+    </style>
+	<body class = "center">
+		<div id="clock">8:10:45</div>
+		<header class = "reg-heading">REGISTRATION FORM</header>
+		<div class = "form-register">
+			<form id="here" action="http://localhost:8080/quizapp/InsDet">
+            <table>
+            <tr>
+                <td>
+				    <label for="name">Name : </label>
+                </td>
+                <td>
+                    <input type="text" id="name" name="name" onfocus = "focusFunction()" onblur = "blurFunction()" pattern="[A-Za-z]+" oninvalid="nameinv()" required>			
+                </td>
+			</tr>
+            <tr>
+                <td>
+				    <label for="cname">College name :</label>
+                </td>
+                <td>
+				    <input type="text" id="cname" name="cname" pattern="[A-Za-z]+" oninvalid="nameinv()" onselect="selectFunction()">
+                </td>
+            </tr>
+            <tr>
+                <td>
+				    <label for="cadd">College Address :</label>
+                </td>
+                <td>
+				    <input type = "text" id="cadd" onkeypress="keypressFunction()">
+                </td>
+            </tr>
+            <tr>
+                <td>
+				    <label for="pin">Pin :</label>
+                </td>
+                <td>
+				    <input type="number" id="pin" name="pin" maxlength="6" oninvalid="pininv()" pattern=[0-9]+>
+                </td>
+            </tr>
+            <tr>
+                <td>
+				    <label for="age">Age :</label>
+                </td>
+                <td>
+				    <input type="number" id="age" name="age" min="10" max="22">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="dob">Date of Birth :</label>
+                </td>
+				<td>
+                    <input type="date" id="dob" name="dob">
+                </td>
+			</tr>	
+            <tr>
+                <td>
+                    <label for="gender">Gender :</label>
+                </td>
+				<td>
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="gender">Male</label>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="gender">Female</label>
+                </td>
+			</tr>
+            <tr>
+                <td>
+                    <label for="dept">Department :</label>
+                </td>
+                <td>
+                    <select id="dept" name="dept" onchange = "changeFunction()">
+                        <option value="choice">Choose an option</option>
+                        <option value="CSE">CSE</option>
+                        <option value="IT">IT</option>
+                        <option value="ECE">ECE</option>
+                        <option value="BME">BME</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="contact">Contact Number :</label>
+                </td>
+                <td>
+                    <input type="tel" id="contact" name="contact" pattern="[0-9]+" maxlength="10" oninvalid="contactinv()">
+                </td>
+            </tr>
+			<tr>
+                <td>
+                    <label for="email">Email :</label>
+                </td>
+                <td>
+                    <input type="text" id="emailid" name="emailid" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for = "programming" name = "progskills">Programming Skills :</label>
+                </td>
+                <td>
+                    <textarea id = "progskills" name = "progskills" placeholder = "Drag and drop
+                    your skills" ondrop = "drop(event)" ondragover = "allowDrop(event)"></textarea><br><br>
+                    <div draggable="true" ondragstart="drag(event)" class =
+                    "prog-skill" id = "drag1">C++</div>
+                    <div draggable="true" ondragstart="drag(event)" class =
+                    "prog-skill" id = "drag2">C</div>
+                    <div draggable="true" ondragstart="drag(event)" class =
+                    "prog-skill" id = "drag3">JAVA</div>
+                    <div draggable="true" ondragstart="drag(event)" class =
+                    "prog-skill" id = "drag4">PYTHON</div>
+                    <div draggable="true" ondragstart="drag(event)" class =
+                    "prog-skill" id = "drag5">RUBY</div>
+                </td>
+			</tr>
+            <tr>
+                <td>
+				    <label for="hobb">Hobbies : </label><br>
+                </td>
+                <td>
+                    <input type="checkbox" id="hobb" name="hobb" value="drawing">
+                    <label for="hobb">Drawing</label><br>
+                    <input type="checkbox" id="hobb" name="hobb" value="badminton">
+                    <label for="hobb">Badminton</label><br>
+                    <input type="checkbox" id="hobb" name="hobb" value="reading">	
+                    <label for="hobb">Reading</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+				    <label for="filename">Upload Consent : </label>
+                </td>
+                <td>
+				    <input type="file" id="myFile" name="filename">
+                </td>
+            </tr>
+            <tr>
+            <br>
+                <td class="submit-col">
+				    <input class="submitbuttn" type="submit" value="Submit">
+                </td>
+                <td class="reset-col">
+				    <input class="submitbuttn" type="reset" value="Reset">
+                </td>
+            </tr>
+            </table>
+            <br><br>
+			</form>
+			</div>
+		<script>
+		setInterval(showTime, 1000);
+function showTime() {
+    let time = new Date();
+    let hour = time.getHours();
+    let min = time.getMinutes();
+    let sec = time.getSeconds();
+    am_pm = "AM";
+ 
+    if (hour > 12) {
+        hour -= 12;
+        am_pm = " PM";
+    }
+    if (hour == 0) {
+        hr = 12;
+        am_pm = " AM";
+    }
+ 
+    hour = hour < 10 ? "0" + hour : hour;
+    min = min < 10 ? "0" + min : min;
+    sec = sec < 10 ? "0" + sec : sec;
+ 
+    let currentTime = hour + ":"
+            + min + ":" + sec + am_pm;
+ 
+    document.getElementById("clock")
+            .innerHTML = currentTime;
+}
+showTime();
+
+function submitForm()
+{
+    window.location.href="submit.html";
+	submitFormDetails();
+	validateForm();
+	tabulate();
+}
+
+function focusFunction() {
+    document.getElementById("name").style.background = "#5EC2B7";
+}
+
+function blurFunction() {
+    document.getElementById("name").style.background = "#5EC2B7";
+}
+
+
+function selectFunction() {
+    document.getElementById("cname").style.background = "#5EC2B7";
+}
+   
+function keypressFunction() {
+    document.getElementById("cadd").style.background = "#5EC2B7";
+}
+
+function changeFunction() {
+    document.getElementById("dept").style.background = "#5EC2B7";
+}
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+function drag(ev) {
+    ev.dataTransfer.setData("target_id_name", ev.target.id);
+}
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("target_id_name");
+    ev.target.innerHTML += document.getElementById(data).innerHTML + " ";
+}
+
+function tabulate() {
+        var myForm = document.getElementById('here') ;
+        let formData = new FormData(myForm);
+        document.write('<link rel="stylesheet" href="styles.css"><style>table, th, td{ border: 1px solid gray ; }</style>')
+        document.writeln("<h1>FORM RESPONSE RECEIVED</h1>");
+        document.writeln("<div class='box' style='width: fit-content;'><table style='width: 400px;margin:10px;font-size:25px;'>");
+        document.writeln("<tr><th>Name</th><td>"+formData.get('name')+"</td></tr><tr><th>College Name</th><td>"+formData.get('cname')+"</td></tr><tr><th>College Address</th><td>"+formData.get('cadd')+"</td></tr><tr><th>Pincode</th><td>"+formData.get('pin')+"</td></tr><tr><th>Age</th><td>"+formData.get('age')+"</td></tr><tr><th>DOB</th><td>"+formData.get('dob')+"</td></tr><tr><th>Gender</th><td>"+formData.get('gender')+"</td></tr><tr><th>Department</th><td>"+formData.get('dept')+"</td></tr><tr><th>Contact Number</th><td>"+formData.get('contact')+"</td></tr><tr><th>Email</th><td>"+formData.get('emailid')+"</td></tr><tr><th>Programming skills</th><td>"+formData.get('progskills')+"</td></tr><tr><th>Hobbies</th><td>"+formData.getAll('hobb')+"</td></tr></table></div>") ;
+    }
+
+function validateForm()
+{
+    var n=document.getElementById("name").value;
+    var n1=document.getElementById("cname").value;
+    var n2=document.getElementById("cadd").value;
+    var n3=document.getElementById("pin").value;
+    var n4=document.getElementById("age").value;
+    var n8=document.getElementById("contact").value;
+    var n9=document.getElementById("email").value;
+
+    demo.innerHTML="";
+
+    if(n.value.length > 15 || n.value.match(/[A-Z a-z]+/g)==null || n.value.match(/[A-Z a-z]+/g)[0] != n.value)
+    {
+        demo.innerHTML = "Name should be alphabets/spaces and < 15 length.<br>"
+    }
+
+    if(n3.value.length > 6)
+    {
+        demo.innerHTML = demo+innerHTML + "Pin Number should be <= 6 length.<br>"
+    }
+
+    if(n4.value.length > 22)
+    {
+        demo.innerHTML = demo+innerHTML + "Pin Number should be <= 6 length.<br>"
+    }
+
+    if(n8.value.match(/[(]\+91[)][0-9]{10}/g) == null || n8.value.match(/[(]\+91[)][0-9]{10}/g)[0] != n8.value)
+    {
+        demo.innerHTML = demo.innerHTML + "Follow mobile format (+91)xxxxxxxxxx<br>";
+    }
+
+    if(n9.value.match(/[a-zA-Z\-_.0-9]+@[a-zA-Z\-_0-9]+[.]+[a-zA-Z\-_0-9.]+/g) == null || n9.value.match(/[a-zA-Z\-_.0-9]+@[a-zA-Z\-_0-9]+[.]+[a-zA-Z\-_0-9.]+/g)[0] != n9.value)
+    {
+        demo.innerHTML = demo.innerHTML + "Enter Valid email!<br>";
+    }
+}
+
+function nameinv()
+{
+document.getElementById("namep").innerHTML="Name is not valid should be an alphanumeric";
+document.getElementById("namep").style.color="red";
+}
+
+function contactinv()
+{
+document.getElementById("contactp").innerHTML="Contact Number has to contain only digits.";
+document.getElementById("contactp").style.color="red";
+}
+
+
+		</script>
+	</body>
+</html>

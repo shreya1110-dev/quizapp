@@ -1,0 +1,37 @@
+.button-container {
+    text-align: center;
+    width: 60%;
+    margin: auto;
+    align-items: center;
+    background: black;
+}
+
+h1 {
+    color: black;
+    margin-bottom: 10%;
+    font-size: 50px;
+}
+
+button {
+    border: 1px;
+    padding: 5px;
+    margin: 10px;
+    width: 30%;
+}
+
+button:hover {
+    background-color: #2CA6A4;
+}
+
+label {
+    color: white;
+    font-size: 30px;
+}
+
+tr {
+    width: 100%;
+}
+
+td {
+    width: 50%;
+}
