@@ -13,10 +13,15 @@ public class RenderQuiz extends HttpServlet{
       static final String USER = "root";
       static final String PASS = "Shreya@123";
 
-      // creating HTTP Session
+
+      int count = 1;
+      
+
 	  public void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
  
+        
+      // creating HTTP Session
 		// Set response content type
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
@@ -93,6 +98,10 @@ public class RenderQuiz extends HttpServlet{
         String name = request.getParameter("name");
 
 		try {
+            HttpSession session = request.getSession();
+
+      session.setAttribute("usercount",Integer.valueOf(count));
+      count++;
 			// Register JDBC driver
 			Class.forName(JDBC_DRIVER);
 			//Class.forName("com.mysql.cj.jdbc.Driver");

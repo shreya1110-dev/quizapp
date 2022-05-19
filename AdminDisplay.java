@@ -96,8 +96,10 @@ public class AdminDisplay extends HttpServlet{
      
          "</style>\n");
 
+        HttpSession session = request.getSession();
+        Integer count = (Integer)session.getAttribute("usercount");
         out.println("<h1>Welcome Admin!<h1>");
-        out.println("<br><br><div class='credentials-container'><br><br><label>No of Users Taking the Test</label>")
+        out.println("<br><br><div class='credentials-container'><br><br><label>No of Users Taking the Test: "+count+"</label></div></body></html>");
 		
 	} 
 } 

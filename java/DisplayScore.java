@@ -128,22 +128,22 @@ public class DisplayScore extends HttpServlet{
 			}
             out.println("<h1>QUIZ SCORES</h1><br><br>");
             out.println("<h3>Hello, "+name+"</h3>");
-            out.println("<div class='credentials-container'>\n"+
-            "<table>\n"+
-            "<tr>\n"+
-            "<td><label>Question 1</label>/td>\n"+
-            "<td>"+"<label>"+score1+"</label></td>\n"+
-            "</tr>"+
-            "<tr>\n"+
-            "<td><label>Question 2</label></td>\n"+
-            "<td><label>"+score2+"</label></td>\n"+
-            "</tr>"+
-            "<tr>\n"+
-            "<td><label>Total Score</label></td>\n"+
-            "<td><label>"+totalscore+"</label></td>\n"+
-            "</tr>"+
-            "</table>\n"+
-            "</div>");
+                out.println("<div class='credentials-container'>\n"+
+                "<table>\n"+
+                "<tr>\n"+
+                "<td><label>Question 1</label>/td>\n"+
+                "<td>"+"<label>"+score1+"</label></td>\n"+
+                "</tr>"+
+                "<tr>\n"+
+                "<td><label>Question 2</label></td>\n"+
+                "<td><label>"+score2+"</label></td>\n"+
+                "</tr>"+
+                "<tr>\n"+
+                "<td><label>Total Score</label></td>\n"+
+                "<td><label>"+totalscore+"</label></td>\n"+
+                "</tr>"+
+                "</table>\n"+
+                "</div>");
 			out.println("</body></html>");
 
 			// Clean-up environment

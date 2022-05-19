@@ -33,7 +33,7 @@ public class UserAuthenticate extends HttpServlet{
 
 		try {
 			if(username.equals("admin") && password.equals("admin")) {
-				RequestDispatcher rd = request.getRequestDispatcher("html/admin.html");
+				RequestDispatcher rd = request.getRequestDispatcher("/AdminDisp");
 				rd.forward(request, response);
 			}
 			else {

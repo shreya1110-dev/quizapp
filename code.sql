@@ -37,3 +37,8 @@ create table quiz (
     options varchar(100)
 );
 
+create table results (
+    name varchar(40),
+    contact varchar(20),
+    total int(3)
+);
