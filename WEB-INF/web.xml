@@ -1,14 +1,5 @@
 <web-app>
     <servlet>
-        <servlet-class>Welcome</servlet-class>
-        <servlet-name>Welcome</servlet-name>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>Welcome</servlet-name>
-        <url-pattern>/Welcome</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <servlet-class>UserAuthenticate</servlet-class>
         <servlet-name>UserAuth</servlet-name>
     </servlet>
