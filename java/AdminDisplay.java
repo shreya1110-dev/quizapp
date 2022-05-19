@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import java.sql.*;
  
-public class DisplayScore extends HttpServlet{
+public class AdminDisplay extends HttpServlet{
 		// JDBC driver name and database URL
       static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";  
       static final String DB_URL="jdbc:mysql://localhost:3306/quizapp";
@@ -15,13 +15,23 @@ public class DisplayScore extends HttpServlet{
 	  public void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
  
+         
 		// Set response content type
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		String title = "Quiz Score";
-		String docType =
+      String title="Admin Page";
+        String docType =
          "<!doctype html public \"-//w3c//dtd html 4.0 " + "transitional//en\">\n";
       
+		out.println(docType +
+         "<html>\n" +
+         "<head><title>" + title + "</title>\n"+
+         "<link rel = \"stylesheet\" href = \"../css/cred.css\" type = \"text/css\">\n"+
+         "<link rel = \"stylesheet\" href = \"../css/index.css\" type = \"text/css\">\n"+
+         "<script>document.getElementById('hidden-form').submit()</script>"
+         +"</head>\n"+
+         "<body>\n");
+        
          out.println(docType +
          "<html>\n" +
          "<head><title>" + title + "</title>\n"+"<style>\n"+
@@ -86,78 +96,8 @@ public class DisplayScore extends HttpServlet{
      
          "</style>\n");
 
-        String ans1 = request.getParameter("answer1");
-        String ans2 = request.getParameter("answer2");
-        String name = request.getParameter("name");
-		try {
-			// Register JDBC driver
-			Class.forName(JDBC_DRIVER);
-			//Class.forName("com.mysql.cj.jdbc.Driver");
-
-			// Open a connection
-			Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
-			
-			// Execute SQL query
-			Statement stmt = conn.createStatement();
-			String sql;
-			sql = "SELECT * FROM quiz";
-			ResultSet rs = stmt.executeQuery(sql);
-
-			// Extract data from result set
-            int qn=1;
-            int score1=0;
-            int score2=0;
-            int totalscore=0;
-			while(rs.next()){
-				//Retrieve by column name
-                if(qn==1) {
-                    String answer1 = rs.getString("answer");
-                    if(ans1.equals(answer1)) {
-                        score1 = 1;
-                        totalscore++;
-                    }
-                }
-                if(qn==2){
-                    String answer2 = rs.getString("answer");
-                    if(ans2.equals(answer2)) {
-                        score2 = 1;
-                        totalscore++;
-                    }
-                }
-                qn++;
-			}
-            out.println("<h1>QUIZ SCORES</h1><br><br>");
-            out.println("<h3>Hello, "+name+"</h3>");
-            out.println("<div class='credentials-container'>\n"+
-            "<table>\n"+
-            "<tr>\n"+
-            "<td><label>Question 1</label>/td>\n"+
-            "<td>"+"<label>"+score1+"</label></td>\n"+
-            "</tr>"+
-            "<tr>\n"+
-            "<td><label>Question 2</label></td>\n"+
-            "<td><label>"+score2+"</label></td>\n"+
-            "</tr>"+
-            "<tr>\n"+
-            "<td><label>Total Score</label></td>\n"+
-            "<td><label>"+totalscore+"</label></td>\n"+
-            "</tr>"+
-            "</table>\n"+
-            "</div>");
-			out.println("</body></html>");
-
-			// Clean-up environment
-			rs.close();
-			stmt.close();
-			conn.close();
-		} 
-		catch(SQLException se) {
-            //Handle errors for JDBC
-            se.printStackTrace();
-		} 
-		catch(Exception e) {
-            //Handle errors for Class.forName
-            e.printStackTrace();
-		} 
+        out.println("<h1>Welcome Admin!<h1>");
+        out.println("<br><br><div class='credentials-container'><br><br><label>No of Users Taking the Test</label>")
+		
 	} 
 } 

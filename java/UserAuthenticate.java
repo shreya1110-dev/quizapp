@@ -32,44 +32,50 @@ public class UserAuthenticate extends HttpServlet{
         String password = request.getParameter("password");
 
 		try {
-			// Register JDBC driver
-			Class.forName(JDBC_DRIVER);
-			//Class.forName("com.mysql.cj.jdbc.Driver");
-
-			// Open a connection
-			Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
-			
-			// Execute SQL query
-			Statement stmt = conn.createStatement();
-			String sql;
-			sql = "SELECT * FROM credentials";
-			ResultSet rs = stmt.executeQuery(sql);
-
-			// Extract data from result set
-			int flag=0;
-			while(rs.next()){
-				//Retrieve by column name
-				String uname  = rs.getString("username");
-				String pass = rs.getString("password");
-                if(uname.equals(username) && pass.equals(password)) {
-                    RequestDispatcher rd = request.getRequestDispatcher("html/registration.html");
-                    // forwarding the request to Welcome.java
-                    rd.forward(request, response);
-					flag=1;
-                }
+			if(username.equals("admin") && password.equals("admin")) {
+				RequestDispatcher rd = request.getRequestDispatcher("html/admin.html");
+				rd.forward(request, response);
 			}
-			if(flag == 0) {
-				out.println("Invalid Credentials!");
-                RequestDispatcher rd = request.getRequestDispatcher("html/login.html");
-                // forwarding the request to Welcome.java
-                rd.include(request, response);
-			}
-			out.println("</body></html>");
+			else {
+				// Register JDBC driver
+				Class.forName(JDBC_DRIVER);
+				//Class.forName("com.mysql.cj.jdbc.Driver");
 
-			// Clean-up environment
-			rs.close();
-			stmt.close();
-			conn.close();
+				// Open a connection
+				Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+				
+				// Execute SQL query
+				Statement stmt = conn.createStatement();
+				String sql;
+				sql = "SELECT * FROM credentials";
+				ResultSet rs = stmt.executeQuery(sql);
+
+				// Extract data from result set
+				int flag=0;
+				while(rs.next()){
+					//Retrieve by column name
+					String uname  = rs.getString("username");
+					String pass = rs.getString("password");
+					if(uname.equals(username) && pass.equals(password)) {
+						RequestDispatcher rd = request.getRequestDispatcher("html/registration.html");
+						// forwarding the request to Welcome.java
+						rd.forward(request, response);
+						flag=1;
+					}
+				}
+				if(flag == 0) {
+					out.println("Invalid Credentials!");
+					RequestDispatcher rd = request.getRequestDispatcher("html/login.html");
+					// forwarding the request to Welcome.java
+					rd.include(request, response);
+				}
+				out.println("</body></html>");
+
+				// Clean-up environment
+				rs.close();
+				stmt.close();
+				conn.close();
+			}
 		} 
 		catch(SQLException se) {
             //Handle errors for JDBC

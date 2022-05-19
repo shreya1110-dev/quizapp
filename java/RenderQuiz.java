@@ -12,6 +12,8 @@ public class RenderQuiz extends HttpServlet{
       //  Database credentials
       static final String USER = "root";
       static final String PASS = "Shreya@123";
+
+      // creating HTTP Session
 	  public void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
  
@@ -88,6 +90,7 @@ public class RenderQuiz extends HttpServlet{
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        String name = request.getParameter("name");
 
 		try {
 			// Register JDBC driver
@@ -99,12 +102,26 @@ public class RenderQuiz extends HttpServlet{
 			
 			// Execute SQL query
 			Statement stmt = conn.createStatement();
-			String sql;
+			String sql,n="", contact="";
+
+            Cookie[] cookie = request.getCookies();
+            for(int i=0; i<cookie.length; i++) {
+                if(cookie[i].getName().equals("Name")) {
+                    n = cookie[i].getValue();
+                }
+                if(cookie[i].getName().equals("Contact")) {
+                    contact = cookie[i].getValue();
+                }
+            }
+
+
 			sql = "SELECT * FROM quiz";
 			ResultSet rs = stmt.executeQuery(sql);
 
 			// Extract data from result set
-            out.println("<h1>QUIZ</h1>");
+            out.println("<h1>QUIZ</h1><br>");
+            out.println("<h3>Name: "+n+"</h3>");
+            out.println("<h3>Contact: "+contact+"</h3><br><br>");
             out.println("<form class='credentials-container' action='http://localhost:8080/quizapp/DispScore'>\n<table width='100%'>\n");
             int qn = 1;
 			while(rs.next()){
@@ -115,12 +132,12 @@ public class RenderQuiz extends HttpServlet{
                 String[] option = options.split(",");
                 out.println("<tr>\n<td colspan='4'><label>"+qn+") "+question+"</label></td>\n</tr>");
                 for(int i=0; i<option.length; i++) {
-                    out.println("<td><label>"+option[i]+"</label></td>\n");
+                    out.println("<td><label>"+(i+1)+") "+option[i]+"</label></td>\n");
                 }
                 out.println("</tr>\n<td colspan='4'><input type='text' name='answer"+ qn +"'placeholder='Enter answer'></td></tr>");
                 qn++;
 			}
-            out.println("<tr><td colspan='4'><input type='submit' value='Submit'</td></tr>");
+            out.println("<input type='hidden' name='name' value="+name+"><tr><td colspan='4'><input type='submit' value='Submit'</td></tr>");
 			out.println("</body></html>");
 
 			// Clean-up environment

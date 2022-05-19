@@ -52,5 +52,23 @@
         <servlet-name>DispScore</servlet-name>
         <url-pattern>/DispScore</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-class>ProceedToQuiz</servlet-class>
+        <servlet-name>ProcQuiz</servlet-name>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProcQuiz</servlet-name>
+        <url-pattern>/ProcQuiz</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-class>AdminDisplay</servlet-class>
+        <servlet-name>AdminDisp</servlet-name>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminDisp</servlet-name>
+        <url-pattern>/AdminDisp</url-pattern>
+    </servlet-mapping>
     
 </web-app>
