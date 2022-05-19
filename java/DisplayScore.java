@@ -125,26 +125,47 @@ public class DisplayScore extends HttpServlet{
                     }
                 }
                 qn++;
-			}
-            out.println("<h1>QUIZ SCORES</h1><br><br>");
-            out.println("<h3>Hello, "+name+"</h3>");
-                out.println("<div class='credentials-container'>\n"+
-                "<table>\n"+
-                "<tr>\n"+
-                "<td><label>Question 1</label>/td>\n"+
-                "<td>"+"<label>"+score1+"</label></td>\n"+
-                "</tr>"+
-                "<tr>\n"+
-                "<td><label>Question 2</label></td>\n"+
-                "<td><label>"+score2+"</label></td>\n"+
-                "</tr>"+
-                "<tr>\n"+
-                "<td><label>Total Score</label></td>\n"+
-                "<td><label>"+totalscore+"</label></td>\n"+
-                "</tr>"+
-                "</table>\n"+
-                "</div>");
-			out.println("</body></html>");
+            }
+
+                PreparedStatement st = conn
+                   .prepareStatement("insert into results values(?,?,?,?)");
+                    st.setString(1, request.getParameter("id"));
+                    st.setInt(2, score1);
+                    st.setInt(3, score2);
+                    st.setInt(4, totalscore);
+                    st.executeUpdate();
+                    stmt = conn.createStatement();
+                    sql = "SELECT * FROM results where id='"+request.getParameter("id")+"'";
+                    rs = stmt.executeQuery(sql);
+        
+                    out.println("<h1>QUIZ SCORES</h1><br><br>");
+                    out.println("<h3>Hello, "+name+"</h3>");
+                    // Extract data from result set
+                    while(rs.next()){
+                        //Retrieve by column name
+                        int s1 = rs.getInt("score1");
+                        int s2 = rs.getInt("score2");
+                        int total = rs.getInt("total");
+                        out.println("<div class='credentials-container'>\n"+
+                        "<table>\n"+
+                        "<tr>\n"+
+                        "<td><label>Question 1</label>/td>\n"+
+                        "<td>"+"<label>"+s1+"</label></td>\n"+
+                        "</tr>"+
+                        "<tr>\n"+
+                        "<td><label>Question 2</label></td>\n"+
+                        "<td><label>"+s2+"</label></td>\n"+
+                        "</tr>"+
+                        "<tr>\n"+
+                        "<td><label>Total Score</label></td>\n"+
+                        "<td><label>"+total+"</label></td>\n"+
+                        "</tr>"+
+                        "</table>\n"+
+                        "</div><br><br>");
+                    }
+        
+                    out.println("</body></html>");
+
 
 			// Clean-up environment
 			rs.close();

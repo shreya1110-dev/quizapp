@@ -1,10 +1,16 @@
-** code for mysql
+-- ** code for mysql
 
-** creating databases
+-- ** creating databases
+
+drop database quizapp;
+drop table credentials;
+drop table registration;
+drop table quiz;
+drop table results;
 
 create database quizapp;
 
-** user table
+-- ** user table
 
 use quizapp;
 create table credentials (
@@ -12,7 +18,7 @@ create table credentials (
     password varchar(20)
 );
 
-** registration table
+-- ** registration table
 
 create table registration (
     name varchar(30),
@@ -29,7 +35,7 @@ create table registration (
     hobbies varchar(30)
 );
 
-** quiz table
+-- ** quiz table
 
 create table quiz (
     question varchar(100),
@@ -37,8 +43,14 @@ create table quiz (
     options varchar(100)
 );
 
+-- ** results table
+
 create table results (
-    name varchar(40),
-    contact varchar(20),
+    id varchar(40),
+    score1 int(3),
+    score2 int(3),
     total int(3)
 );
+
+insert into quiz values("Which is a keyword?","auto","auto,title,card,record");
+insert into quiz values("Which is a not keyword?","title","auto,break,while,title");

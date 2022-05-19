@@ -1,3 +1,6 @@
 command to compile servlet
 
-javac -cp ;C:/apache-tomcat-9.0.62/lib/servlet-api.jar -d WEB-INF/classes UserAuthenticate.java AdminDisplay.java InsertCredentials.java InsertDetails.java RenderQuiz.java DisplayScore.java
+cd C:\apache-tomcat-9.0.62\webapps\quizapp\java>
+
+javac -cp ;C:/    -d ../WEB-INF/classes AdminDisplay.java DisplayScore.java InsertCredentials.java InsertDetails.java RenderQuiz.java UserAuthenticate.java
+

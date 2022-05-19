@@ -99,6 +99,7 @@ public class RenderQuiz extends HttpServlet{
 
 		try {
             HttpSession session = request.getSession();
+            String id = session.getId();
 
       session.setAttribute("usercount",Integer.valueOf(count));
       count++;
@@ -146,6 +147,7 @@ public class RenderQuiz extends HttpServlet{
                 out.println("</tr>\n<td colspan='4'><input type='text' name='answer"+ qn +"'placeholder='Enter answer'></td></tr>");
                 qn++;
 			}
+            out.println("<input type='hidden' name='id' value="+id+">");
             out.println("<input type='hidden' name='name' value="+name+"><tr><td colspan='4'><input type='submit' value='Submit'</td></tr>");
 			out.println("</body></html>");
 
